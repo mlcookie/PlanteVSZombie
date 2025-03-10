@@ -1,5 +1,5 @@
 package com.epf.Persistance;
 
-public interface ZombieDAO {
+public interface InterZombieDAO {
 }
 //appel à la base de données
