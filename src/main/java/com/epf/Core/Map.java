@@ -48,5 +48,15 @@ public class Map {
     public void setCheminImage(String cheminImage) {
         this.cheminImage = cheminImage;
     }
+
+    @Override
+    public String toString() {
+        return "Map{" +
+                "id=" + id +
+                ", ligne=" + ligne +
+                ", colonne=" + colonne +
+                ", cheminImage='" + cheminImage + '\'' +
+                '}';
+    }
 }
 

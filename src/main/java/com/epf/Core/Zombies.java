@@ -86,5 +86,18 @@ public class Zombies {
         this.vitesseDeDeplacement = vitesseDeDeplacement;
     }
 
+    @Override
+    public String toString() {
+        return "Zombies{" +
+                "idZombie=" + idZombie +
+                ", nomZombie='" + nomZombie + '\'' +
+                ", pointDeVieZombie=" + pointDeVieZombie +
+                ", attaqueParSecondeZombie=" + attaqueParSecondeZombie +
+                ", degatParSeconde=" + degatParSeconde +
+                ", vitesseDeDeplacement=" + vitesseDeDeplacement +
+                ", cheminImage='" + cheminImage + '\'' +
+                ", idMap=" + idMap +
+                '}';
+    }
 }
 

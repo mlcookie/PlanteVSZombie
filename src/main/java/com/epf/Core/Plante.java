@@ -121,4 +121,19 @@ public class Plante {
     public void setCheminImage(String cheminImage) {
         this.cheminImage = cheminImage;
     }
+
+    @Override
+    public String toString() {
+        return "Plante{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", pointDeVie=" + pointDeVie +
+                ", attaqueParSeconde=" + attaqueParSeconde +
+                ", degatAttaque=" + degatAttaque +
+                ", cout=" + cout +
+                ", soleilParSeconde=" + soleilParSeconde +
+                ", effet=" + effet +
+                ", cheminImage='" + cheminImage + '\'' +
+                '}';
+    }
 }
