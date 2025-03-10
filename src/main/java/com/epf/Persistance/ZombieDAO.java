@@ -1,4 +1,4 @@
 package com.epf.Persistance;
 
-public interface ZombieDAO {
+public class ZombieDAO {
 }
