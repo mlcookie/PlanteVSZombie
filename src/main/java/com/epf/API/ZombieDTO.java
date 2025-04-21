@@ -27,6 +27,71 @@ public class ZombieDTO {
         return new Zombies(idZombie, nomZombie, pointDeVieZombie, attaqueParSecondeZombie, degatParSeconde, vitesseDeDeplacement, cheminImage, idMap);
     }
 
-    // Getters et Setters...
+
+
+    public double getAttaqueParSecondeZombie() {
+        return attaqueParSecondeZombie;
+    }
+
+    public int getIdZombie() {
+        return idZombie;
+    }
+
+    public double getVitesseDeDeplacement() {
+        return vitesseDeDeplacement;
+    }
+
+    public int getPointDeVieZombie() {
+        return pointDeVieZombie;
+    }
+
+    public int getDegatParSeconde() {
+        return degatParSeconde;
+    }
+
+    public String getNomZombie() {
+        return nomZombie;
+    }
+
+    public String getCheminImage() {
+        return cheminImage;
+    }
+
+    public int getIdMap() {
+        return idMap;
+    }
+
+    public void setAttaqueParSecondeZombie(double attaqueParSecondeZombie) {
+        this.attaqueParSecondeZombie = attaqueParSecondeZombie;
+    }
+
+    public void setDegatParSeconde(int degatParSeconde) {
+        this.degatParSeconde = degatParSeconde;
+    }
+
+    public void setIdZombie(int idZombie) {
+        this.idZombie = idZombie;
+    }
+
+    public void setNomZombie(String nomZombie) {
+        this.nomZombie = nomZombie;
+    }
+
+    public void setPointDeVieZombie(int pointDeVieZombie) {
+        this.pointDeVieZombie = pointDeVieZombie;
+    }
+
+    public void setCheminImage(String cheminImage) {
+        this.cheminImage = cheminImage;
+    }
+
+    public void setIdMap(int idMap) {
+        this.idMap = idMap;
+    }
+
+    public void setVitesseDeDeplacement(double vitesseDeDeplacement) {
+        this.vitesseDeDeplacement = vitesseDeDeplacement;
+    }
+
 }
 

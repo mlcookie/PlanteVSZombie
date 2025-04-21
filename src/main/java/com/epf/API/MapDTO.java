@@ -23,5 +23,40 @@ public class MapDTO {
         return map;
     }
 
-    // Getters et Setters...
+
+
+
+    public int getColonne() {
+        return colonne;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getLigne() {
+        return ligne;
+    }
+
+    public String getCheminImage() {
+        return cheminImage;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLigne(int ligne) {
+        this.ligne = ligne;
+    }
+
+    public void setCheminImage(String cheminImage) {
+        this.cheminImage = cheminImage;
+    }
+
+    public void setColonne(int colonne) {
+        this.colonne = colonne;
+    }
+
+
 }

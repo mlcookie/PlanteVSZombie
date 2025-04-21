@@ -16,7 +16,7 @@ public class Config {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/pvz");
         dataSource.setUsername("epf");
-        dataSource.setPassword("mdp");
+        dataSource.setPassword("epf");
         return dataSource;
     }
 
