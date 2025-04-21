@@ -15,8 +15,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = "com.epf")
 public class Config {
 
+
+
     @Bean
     public DataSource getDataSource() {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // <- C'EST LUI LE SAUVEUR 🛟
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/pvz");
         dataSource.setUsername("epf");
