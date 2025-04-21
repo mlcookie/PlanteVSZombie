@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/maps")
+@RequestMapping("/CoursEpfBack/maps")
 public class MapController {
 
     private final MapService mapService;
