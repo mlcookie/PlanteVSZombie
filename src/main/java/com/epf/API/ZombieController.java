@@ -29,7 +29,7 @@ public class ZombieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ZombieDTO> getZombieById(@PathVariable int id) {
+    public ResponseEntity<ZombieDTO> getZombieById(@PathVariable("id") int id) {
         Zombies zombie = zombieService.getZombieById(id);
         return ResponseEntity.ok(new ZombieDTO(zombie));
     }
@@ -41,7 +41,7 @@ public class ZombieController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateZombie(@PathVariable int id, @RequestBody ZombieDTO zombieDTO) {
+    public ResponseEntity<Void> updateZombie(@PathVariable("id") int id, @RequestBody ZombieDTO zombieDTO) {
         Zombies zombie = zombieDTO.toEntity();
         zombie.setIdZombie(id);
         zombieService.updateZombie(zombie);
@@ -49,7 +49,7 @@ public class ZombieController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteZombie(@PathVariable int id) {
+    public ResponseEntity<Void> deleteZombie(@PathVariable("id") int id) {
         zombieService.deleteZombie(id);
         return ResponseEntity.ok().build();
     }

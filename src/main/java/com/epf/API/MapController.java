@@ -49,7 +49,7 @@ public class MapController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MapDTO> getMapById(@PathVariable int id) {
+    public ResponseEntity<MapDTO> getMapById(@PathVariable("id") int id) {
         Map map = mapService.getMapById(id);
         if (map == null) {
             return ResponseEntity.notFound().build(); // 404 Not Found
@@ -65,7 +65,7 @@ public class MapController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateMap(@PathVariable int id, @RequestBody MapDTO mapDTO) {
+    public ResponseEntity<Void> updateMap(@PathVariable("id") int id, @RequestBody MapDTO mapDTO) {
         Map map = mapDTO.toEntity();
         map.setId(id);
         mapService.updateMap(map);
@@ -74,7 +74,7 @@ public class MapController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMap(@PathVariable int id) {
+    public ResponseEntity<Void> deleteMap(@PathVariable("id") int id) {
         mapService.deleteMap(id);
         logger.info("Map with id {} deleted successfully", id);
         return ResponseEntity.ok().build();

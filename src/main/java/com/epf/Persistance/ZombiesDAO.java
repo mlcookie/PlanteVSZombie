@@ -19,10 +19,10 @@ public class ZombiesDAO implements InterZombieDAO {
     private final RowMapper<Zombies> zombieMapper = (rs, rowNum) -> {
         Zombies zombie = new Zombies(
                 rs.getInt("id_zombie"),
-                rs.getString("nom_zombie"),
-                rs.getInt("point_de_vie_zombie"),
-                rs.getDouble("attaque_par_seconde_zombie"),
-                rs.getInt("degat_par_seconde"),
+                rs.getString("nom"),
+                rs.getInt("point_de_vie"),
+                rs.getDouble("attaque_par_seconde"),
+                rs.getInt("degat_attaque"),
                 rs.getDouble("vitesse_de_deplacement"),
                 rs.getString("chemin_image"),
                 rs.getInt("id_map")
