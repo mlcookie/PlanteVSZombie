@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/CoursEpfBack/plantes")
+@RequestMapping("/plantes")
 public class PlanteController {
 
     private final PlanteService planteService;
