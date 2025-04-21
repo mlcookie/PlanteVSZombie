@@ -1,37 +1,27 @@
 package com.epf;
 
-import com.epf.Core.Map;
-import com.epf.Core.Plante;
-import com.epf.Persistance.MapDAO;
-import com.epf.Persistance.PlanteDAO;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
 import com.epf.Persistance.Config;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.sql.DataSource;
-import java.util.List;
+public class Main extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-public class Main {
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[]{Config.class}; // Charge la configuration de la base de données
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{Config.WebConfig.class}; // Charge la configuration de Spring MVC
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[]{"/"}; // Toutes les requêtes passent par Spring MVC
+    }
+
     public static void main(String[] args) {
-        // Configuration manuelle de la DataSource
-        DataSource dataSource = new DriverManagerDataSource("jdbc:mysql://localhost:3306/ton_db", "user", "password");
-
-        // Création du contexte Spring
-        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-
-        // Récupération du DAO
-        PlanteDAO planteDAO = context.getBean(PlanteDAO.class);
-
-        // Ajout d'une nouvelle plante
-       // Plante nouvellePlante = new Plante("Tournesol", 100, 0.0, 0, 50, 25.0, Plante.Effet.NORMAL, "tournesol.png");
-       // planteDAO.addPlante(nouvellePlante);
-        //System.out.println("✅ Plante ajoutée !");
-
-        // Récupération et affichage de toutes les plantes
-        List<Plante> plantes = planteDAO.getAllPlantes();
-        System.out.println("📜 Liste des plantes : " + plantes);
-
+        // Spring se charge de démarrer l'application via l'initialisation configurée ci-dessus.
+        // Donc pas besoin d'ajouter des appels dans cette méthode.
     }
 }

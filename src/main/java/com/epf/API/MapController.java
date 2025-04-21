@@ -1,11 +1,15 @@
 package com.epf.API;
 
-
 import com.epf.Core.Map;
 import com.epf.API.MapDTO;
 import com.epf.Core.Service.MapService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +18,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/maps")
 public class MapController {
 
+    private static final Logger logger = LoggerFactory.getLogger(MapController.class);
     private final MapService mapService;
 
     public MapController(MapService mapService) {
@@ -29,16 +34,34 @@ public class MapController {
         return ResponseEntity.ok(maps);
     }
 
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @GetMapping("/test-connexion")
+    public String testConnexion() {
+        try {
+            Integer result = jdbcTemplate.queryForObject("SELECT 1", Integer.class);
+            return "Connexion réussie à la base de données! Résultat : " + result;
+        } catch (Exception e) {
+            return "Échec de la connexion : " + e.getMessage();
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<MapDTO> getMapById(@PathVariable int id) {
         Map map = mapService.getMapById(id);
+        if (map == null) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
         return ResponseEntity.ok(new MapDTO(map));
     }
 
     @PostMapping
     public ResponseEntity<Void> addMap(@RequestBody MapDTO mapDTO) {
         mapService.addMap(mapDTO.toEntity());
-        return ResponseEntity.ok().build();
+      //  logger.info("Map with name {} added successfully", mapDTO.getName());
+        return ResponseEntity.status(HttpStatus.CREATED).build(); // 201 Created
     }
 
     @PutMapping("/{id}")
@@ -46,12 +69,14 @@ public class MapController {
         Map map = mapDTO.toEntity();
         map.setId(id);
         mapService.updateMap(map);
+        logger.info("Map with id {} updated successfully", id);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMap(@PathVariable int id) {
         mapService.deleteMap(id);
+        logger.info("Map with id {} deleted successfully", id);
         return ResponseEntity.ok().build();
     }
 }

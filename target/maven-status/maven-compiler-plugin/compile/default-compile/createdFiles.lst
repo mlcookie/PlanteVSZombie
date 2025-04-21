@@ -1,4 +1,3 @@
-com/epf/Persistance/ConfigWeb.class
 com/epf/Core/Service/MapService.class
 com/epf/Persistance/ZombiesDAO.class
 com/epf/Core/Map.class
@@ -11,6 +10,7 @@ com/epf/Core/Plante.class
 com/epf/API/ZombieController.class
 com/epf/API/MapController.class
 com/epf/Core/Service/ZombieService.class
+com/epf/Persistance/Config$WebConfig.class
 com/epf/Main.class
 com/epf/Persistance/Config.class
 com/epf/Core/Plante$Effet.class

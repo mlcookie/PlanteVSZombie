@@ -37,6 +37,7 @@
             <version>8.0.33</version> <!-- Dernière version stable -->
         </dependency>
 
+
         <!-- Jackson pour la manipulation de JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
