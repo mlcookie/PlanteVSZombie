@@ -10,7 +10,7 @@ public class PlanteDTO {
     private int degat_attaque;
     private int cout;
     private double soleil_par_seconde;
-    private String effet; // attention ici : transforme ton enum en String
+    private String effet;
     private String chemin_image;
 
     public PlanteDTO(Plante plante) {
@@ -21,12 +21,12 @@ public class PlanteDTO {
         this.degat_attaque = plante.getDegatAttaque();
         this.cout = plante.getCout();
         this.soleil_par_seconde = plante.getSoleilParSeconde();
-        this.effet = String.valueOf(plante.getEffet());
+        this.effet = plante.getEffet().name();
         this.chemin_image = plante.getCheminImage();
     }
 
     public Plante toEntity() {
-        return new Plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, effet, chemin_image);
+        return new Plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, Plante.Effet.valueOf(effet), chemin_image);
     }
 
     public int getPoint_de_vie() {
