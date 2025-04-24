@@ -25,6 +25,10 @@ public class PlanteDTO {
         this.chemin_image = plante.getCheminImage();
     }
 
+    public PlanteDTO() {
+        // constructeur vide pour la désérialisation
+    }
+
     public Plante toEntity() {
         return new Plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, Plante.Effet.valueOf(effet), chemin_image);
     }

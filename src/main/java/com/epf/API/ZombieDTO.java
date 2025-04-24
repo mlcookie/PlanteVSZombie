@@ -27,6 +27,10 @@ public class ZombieDTO {
         this.id_map = zombie.getIdMap();
     }
 
+    public ZombieDTO() {
+        // constructeur vide pour la désérialisation
+    }
+
     public Zombies toEntity() {
         return new Zombies(id_zombie, nom, point_de_vie, attaque_par_seconde, degat_attaque, vitesse_de_deplacement, chemin_image, id_map);
     }

@@ -14,6 +14,11 @@ public class MapDTO {
         this.chemin_image = map.getCheminImage();
     }
 
+    public MapDTO() {
+        // constructeur vide pour la désérialisation
+    }
+
+
     public Map toEntity() {
         Map map = new Map();
         map.setId(id_map);
