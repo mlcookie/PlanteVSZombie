@@ -52,7 +52,11 @@ public class MapDAO implements InterMapDAO {
 
     @Override
     public void deleteMap(int id) {
-        String sql = "DELETE FROM Map WHERE id_map = ?";
-        jdbcTemplate.update(sql, id);
+        String deleteZombiesSql = "DELETE FROM Zombie WHERE id_map = ?";
+        jdbcTemplate.update(deleteZombiesSql, id);
+
+        String deleteMapSql = "DELETE FROM Map WHERE id_map = ?";
+        jdbcTemplate.update(deleteMapSql, id);
     }
+
 }

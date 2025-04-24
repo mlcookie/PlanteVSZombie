@@ -27,6 +27,22 @@ public class Plante {
         public String toString() {
             return value;
         }
+
+        public static Effet fromString(String text) {
+            if (text == null) {
+                throw new IllegalArgumentException("Effet cannot be null");
+            }
+
+            for (Effet effet : Effet.values()) {
+                if (effet.value.equalsIgnoreCase(text)) {
+                    return effet;
+                }
+            }
+
+            throw new IllegalArgumentException("No enum constant for value: " + text);
+        }
+
+
     }
 
     // Constructeur par défaut

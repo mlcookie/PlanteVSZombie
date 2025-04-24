@@ -30,7 +30,16 @@ public class PlanteDTO {
     }
 
     public Plante toEntity() {
-        return new Plante(nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, Plante.Effet.valueOf(effet), chemin_image);
+        return new Plante(
+                nom,
+                point_de_vie,
+                attaque_par_seconde,
+                degat_attaque,
+                cout,
+                soleil_par_seconde,
+                effet != null ? Plante.Effet.fromString(effet) : Plante.Effet.NORMAL,
+                chemin_image
+        );
     }
 
     public int getPoint_de_vie() {
