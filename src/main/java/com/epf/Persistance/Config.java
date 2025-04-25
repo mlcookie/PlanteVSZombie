@@ -61,7 +61,7 @@ public class Config {
         @Override
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
             registry.addResourceHandler("/images/**")
-                    .addResourceLocations("file:webapp/images/");
+                    .addResourceLocations("/images/");
         }
     }
 
