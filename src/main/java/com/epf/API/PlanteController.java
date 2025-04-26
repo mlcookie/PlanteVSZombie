@@ -1,12 +1,12 @@
 package com.epf.API;
 
 import com.epf.Core.Plante;
-import com.epf.API.PlanteDTO;
 import com.epf.Core.Service.PlanteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,7 +36,8 @@ public class PlanteController {
 
     @PostMapping
     public ResponseEntity<Void> addPlante(@RequestBody PlanteDTO planteDTO) {
-        planteService.addPlante(planteDTO.toEntity());
+        Plante plante = planteDTO.toEntity();
+        planteService.addPlante(plante);
         return ResponseEntity.ok().build();
     }
 

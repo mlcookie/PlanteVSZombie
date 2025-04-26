@@ -71,7 +71,11 @@ public class Zombies {
     }
 
     public void setCheminImage(String cheminImage) {
-        this.cheminImage = cheminImage;
+        if (cheminImage == null || cheminImage.isEmpty() || "/images/zombies/default.png".equals(cheminImage)) {
+            this.cheminImage = "/images/zombie/default.png";
+        } else {
+            this.cheminImage = cheminImage;
+        }
     }
 
     public void setDegatParSeconde(int degatParSeconde) {

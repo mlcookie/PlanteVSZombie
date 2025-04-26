@@ -1,12 +1,12 @@
 package com.epf.API;
 
 import com.epf.Core.Zombies;
-import com.epf.API.ZombieDTO;
 import com.epf.Core.Service.ZombieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,6 +36,7 @@ public class ZombieController {
 
     @PostMapping
     public ResponseEntity<Void> addZombie(@RequestBody ZombieDTO zombieDTO) {
+
         zombieService.addZombie(zombieDTO.toEntity());
         return ResponseEntity.ok().build();
     }

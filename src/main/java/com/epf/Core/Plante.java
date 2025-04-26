@@ -135,7 +135,11 @@ public class Plante {
     }
 
     public void setCheminImage(String cheminImage) {
-        this.cheminImage = cheminImage;
+        if (cheminImage == null || cheminImage.isEmpty() || "/images/plantes/default.png".equals(cheminImage)) {
+            this.cheminImage = "/images/plante/default.png";
+        } else {
+            this.cheminImage = cheminImage;
+        }
     }
 
     @Override
