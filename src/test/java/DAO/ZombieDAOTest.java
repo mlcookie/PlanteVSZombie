@@ -1,11 +1,11 @@
+package DAO;
+
 import com.epf.Core.Zombies;
 import com.epf.Persistance.ZombiesDAO;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -51,22 +51,26 @@ public class ZombieDAOTest {
     }
 
     @Test
-    void testAddZombie() {
-        Zombies zombie = new Zombies(1, "Zombie1", 100, 3.0, 10, 1.5, "image1.jpg", 1);
+    public void testAddZombie() {
+        // Création d'un Zombie
+        Zombies zombie = new Zombies(1, "Zombie1", 100, 1.5d, 3, 10.0, "image1.jpg", 1);
 
+        // Appel de la méthode addZombie
         zombiesDAO.addZombie(zombie);
 
-        verify(jdbcTemplate).update(
-                anyString(),
+        // Vérification que jdbcTemplate.update a été appelé avec les bons arguments
+        verify(jdbcTemplate, times(1)).update(
+                eq("INSERT INTO Zombie (nom, point_de_vie, attaque_par_seconde, degat_attaque, vitesse_de_deplacement, chemin_image, id_map) VALUES (?, ?, ?, ?, ?, ?, ?)"),
                 eq(zombie.getNomZombie()),
                 eq(zombie.getPointDeVieZombie()),
-                eq(zombie.getVitesseDeDeplacement()),
                 eq(zombie.getAttaqueParSecondeZombie()),
                 eq(zombie.getDegatParSeconde()),
+                eq(zombie.getVitesseDeDeplacement()),
                 eq(zombie.getCheminImage()),
                 eq(zombie.getIdMap())
         );
     }
+
 
     @Test
     void testDeleteZombie() {

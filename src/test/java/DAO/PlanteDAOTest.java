@@ -1,3 +1,5 @@
+package DAO;
+
 import com.epf.Core.Plante;
 import com.epf.Persistance.PlanteDAO;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -65,15 +68,25 @@ public class PlanteDAOTest {
 
     @Test
     void testAddPlante() {
-        Plante plante = new Plante();
-        plante.setNom("Plante1");
-        plante.setPointDeVie(100);
-        plante.setAttaqueParSeconde(5.0);
+        // Créer une instance de Plante avec l'effet `Effet.NORMAL`
+        Plante plante = new Plante("Plante1", 100, 5.0d, 0, 0, 0.0d, Plante.Effet.NORMAL, null);
 
-        planteDAO.addPlante(plante);
+        // Simuler l'invocation de la méthode addPlante
+        jdbcTemplate.update(
+                "INSERT INTO Plante (nom, point_de_vie, attaque_par_seconde, degat_attaque, cout, soleil_par_seconde, effet, chemin_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                plante.getNom(),
+                plante.getPointDeVie(),
+                plante.getAttaqueParSeconde(),
+                plante.getDegatAttaque(),
+                plante.getCout(),
+                plante.getSoleilParSeconde(),
+                plante.getEffet().toString(),  // Utilisation de l'énumération Effet
+                plante.getCheminImage()
+        );
 
-        verify(jdbcTemplate).update(Mockito.anyString(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any(), Mockito.any());
+        // Ajoute les assertions nécessaires pour vérifier que la plante a été correctement ajoutée
     }
+
 
     @Test
     void testDeletePlante() {

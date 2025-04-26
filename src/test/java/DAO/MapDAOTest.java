@@ -1,3 +1,5 @@
+package DAO;
+
 import com.epf.Core.Map;
 import com.epf.Persistance.MapDAO;
 import org.junit.jupiter.api.Test;
@@ -80,6 +82,7 @@ public class MapDAOTest {
     void testDeleteMap() {
         mapDAO.deleteMap(1);
 
-        verify(jdbcTemplate).update(Mockito.anyString(), Mockito.anyInt());
+        verify(jdbcTemplate, Mockito.times(2)).update(Mockito.anyString(), Mockito.eq(1));
     }
+
 }
