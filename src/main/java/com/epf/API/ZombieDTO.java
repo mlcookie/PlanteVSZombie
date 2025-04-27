@@ -36,10 +36,7 @@ public class ZombieDTO {
             throw new IllegalArgumentException("id_map cannot be null");
         }
         return new Zombies(id_zombie, nom, point_de_vie, attaque_par_seconde, degat_attaque, vitesse_de_deplacement, chemin_image, id_map);
-
     }
-
-
 
 
     public String getNom() {

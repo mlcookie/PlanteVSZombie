@@ -36,7 +36,6 @@ public class ZombieController {
 
     @PostMapping
     public ResponseEntity<Void> addZombie(@RequestBody ZombieDTO zombieDTO) {
-
         zombieService.addZombie(zombieDTO.toEntity());
         return ResponseEntity.ok().build();
     }

@@ -21,11 +21,8 @@ public class Zombies {
         this.idMap = idMap;
     }
 
-    public Zombies() {
-
-    }
-
-
+   //public Zombies() {
+    //}
     public int getIdZombie() {
         return idZombie;
     }
