@@ -26,7 +26,6 @@ public class PlanteDTO {
     }
 
     public PlanteDTO() {
-        // constructeur vide pour la désérialisation
     }
 
     public Plante toEntity() {

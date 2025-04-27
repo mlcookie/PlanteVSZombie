@@ -1,0 +1,5 @@
+DAO/PlanteDAOTest.class
+Controller/PlanteControllerTest.class
+Controller/ZombieControllerTest.class
+DAO/MapDAOTest.class
+Controller/MapControllerTest.class

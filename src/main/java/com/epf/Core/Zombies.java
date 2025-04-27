@@ -21,8 +21,11 @@ public class Zombies {
         this.idMap = idMap;
     }
 
-   //public Zombies() {
-    //}
+    public Zombies() {
+        this.attaqueParSecondeZombie = 0.00;
+        this.degatParSeconde = 0;
+        this.vitesseDeDeplacement = 0.00;
+    }
     public int getIdZombie() {
         return idZombie;
     }

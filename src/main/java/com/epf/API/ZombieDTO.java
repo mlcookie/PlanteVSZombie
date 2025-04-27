@@ -11,7 +11,7 @@ public class ZombieDTO {
     private int degat_attaque;
     private double vitesse_de_deplacement;
     private String chemin_image;
-    private Integer id_map; // `Integer` si tu veux gérer `null`
+    private Integer id_map;
 
 
 
@@ -28,7 +28,6 @@ public class ZombieDTO {
     }
 
     public ZombieDTO() {
-        // constructeur vide pour la désérialisation
     }
 
     public Zombies toEntity() {

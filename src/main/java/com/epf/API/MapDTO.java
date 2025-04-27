@@ -15,7 +15,7 @@ public class MapDTO {
     }
 
     public MapDTO() {
-        // constructeur vide pour la désérialisation
+
     }
 
 

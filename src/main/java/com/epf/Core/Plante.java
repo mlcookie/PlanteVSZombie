@@ -45,7 +45,7 @@ public class Plante {
 
     }
 
-    // Constructeur par défaut
+
     public Plante() {
         this.attaqueParSeconde = 0.00;
         this.degatAttaque = 0;
@@ -53,7 +53,7 @@ public class Plante {
         this.effet = Effet.NORMAL;
     }
 
-    // Constructeur avec paramètres
+
     public Plante(String nom, int pointDeVie, double attaqueParSeconde, int degatAttaque, int cout, double soleilParSeconde, Effet effet, String cheminImage) {
         this.nom = nom;
         this.pointDeVie = pointDeVie;
@@ -65,7 +65,7 @@ public class Plante {
         this.cheminImage = cheminImage;
     }
 
-    // Getters et Setters
+
     public int getId() {
         return id;
     }

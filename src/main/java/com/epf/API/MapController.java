@@ -1,7 +1,6 @@
 package com.epf.API;
 
 import com.epf.Core.Map;
-import com.epf.API.MapDTO;
 import com.epf.Core.Service.MapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,7 +51,7 @@ public class MapController {
     public ResponseEntity<MapDTO> getMapById(@PathVariable("id") int id) {
         Map map = mapService.getMapById(id);
         if (map == null) {
-            return ResponseEntity.notFound().build(); // 404 Not Found
+            return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(new MapDTO(map));
     }
@@ -60,8 +59,7 @@ public class MapController {
     @PostMapping
     public ResponseEntity<Void> addMap(@RequestBody MapDTO mapDTO) {
         mapService.addMap(mapDTO.toEntity());
-      //  logger.info("Map with name {} added successfully", mapDTO.getName());
-        return ResponseEntity.status(HttpStatus.CREATED).build(); // 201 Created
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/{id}")

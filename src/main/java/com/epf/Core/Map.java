@@ -6,17 +6,14 @@ public class Map {
     private int colonne;
     private String cheminImage;
 
-    // Constructeur par défaut
     public Map() {}
 
-    // Constructeur avec paramètres
     public Map(int ligne, int colonne, String cheminImage) {
         this.ligne = ligne;
         this.colonne = colonne;
         this.cheminImage = cheminImage;
     }
 
-    // Getters et Setters
     public int getId() {
         return id;
     }

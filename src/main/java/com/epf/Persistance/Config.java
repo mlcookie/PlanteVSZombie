@@ -21,7 +21,7 @@ public class Config {
     public DataSource getDataSource() {
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // <- C'EST LUI LE SAUVEUR 🛟
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class Config {
 
     @Configuration
     @EnableWebMvc
-    @ComponentScan(basePackages = "com.epf.API") //package contenant les controllers
+    @ComponentScan(basePackages = "com.epf.API")
     public class WebConfig implements WebMvcConfigurer {
 
         @Override
