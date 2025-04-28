@@ -41,9 +41,11 @@ public class Map {
     public String getCheminImage() {
         return cheminImage;
     }
-
     public void setCheminImage(String cheminImage) {
-        this.cheminImage = cheminImage;
+        if (cheminImage == null || cheminImage.isEmpty() || "/images/maps/default.png".equals(cheminImage)) {
+            this.cheminImage = "/images/map/gazon.png";
+        } else {
+            this.cheminImage = cheminImage;}
     }
 
     @Override
